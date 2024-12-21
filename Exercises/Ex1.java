@@ -10,12 +10,12 @@ public class Ex1 {
         final double OFFSET = 32;
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Podaj temperaturę w stopniach Celsjusza: ");
+        System.out.print("Enter temperature in Celsius: ");
         double celsius = scanner.nextDouble();
         scanner.close();
 
         double fahrenheit = (celsius * MULTIPLIER) + OFFSET;
 
-        System.out.println(celsius + " stopni Celsjusza to " + fahrenheit + " stopni Fahrenheita.");
+        System.out.println(celsius + " Celsius is " + fahrenheit + " Fahrenheit's.");
     }
 }

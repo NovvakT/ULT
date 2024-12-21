@@ -12,9 +12,9 @@ public class Ex5 {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Podaj pierwszą liczbę: ");
+        System.out.print("Enter first muber: ");
         int firstNumber = scanner.nextInt();
-        System.out.print("Podaj drugą liczbę: ");
+        System.out.print("Enter second number: ");
         int secondNumber = scanner.nextInt();
         scanner.close();
 
@@ -51,7 +51,7 @@ public class Ex5 {
 
             System.out.println(doResult);
         } else {
-            System.out.println("Pierwsza liczba powinna być mniejsza od drugiej");
+            System.out.println("The first number can't be smaller the the second");
         }
     }
 }

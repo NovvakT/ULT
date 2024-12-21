@@ -15,10 +15,10 @@ import java.util.Scanner;
 
 public class Ex3 {
     public static void main(String[] args) {
-        System.out.println("Kalkulator ratalny");
+        System.out.println("Rate calculator");
 
-        double price = inputDouble("Podaj kwotę: ");
-        int rate = Utils.inputIntStatic("Podaj liczbę rat: ");
+        double price = inputDouble("Enter price: ");
+        int rate = Utils.inputIntStatic("Enter rate's number: ");
 
         printSeparator();
 
@@ -38,9 +38,9 @@ public class Ex3 {
         double total = price + interest;
         double rateValue = total / rate;
 
-        System.out.println("Odsetki: " + interest + "zł");
-        System.out.println("Łączny koszt: " + total + "zł");
-        System.out.println("Wysokość raty: " + rateValue + "zł");
+        System.out.println("Intrests: " + interest + "zł");
+        System.out.println("Total price: " + total + "zł");
+        System.out.println("Rate's value: " + rateValue + "zł");
     }
 
     private static double getMultiplier(int rate) {
@@ -58,9 +58,9 @@ public class Ex3 {
     }
 
     private static void showError() {
-        System.out.println("Podano błędną wartość !!!");
-        System.out.println("Kwota powinna znajdować się w przedziale od 100zł do 10 000zł");
-        System.out.println("Rata powinna znajdować się w przedziale od 6 do 48");
+        System.out.println("Wrong input!!!");
+        System.out.println("Price should be between 100zł and 10 000zł");
+        System.out.println("Rates sholud be between 6 and 48");
     }
 
     static double inputDouble(String message) {
@@ -69,7 +69,7 @@ public class Ex3 {
             Scanner scanner = new Scanner(System.in);
             return scanner.nextDouble();
         } catch (InputMismatchException e) {
-            System.out.println("Podano błędną wartość");
+            System.out.println("Wrong input");
             return inputDouble(message);
         }
     }

@@ -11,12 +11,12 @@ public class LoopedTryCatch {
         while (!done) {
             try {
                 Scanner userInput = new Scanner(System.in);
-                System.out.print("Podaj liczbę: ");
+                System.out.print("Enter a number: ");
                 int number = userInput.nextInt();
                 userInput.close();
 
                 if (number < 1) {
-                    System.out.println("Podana liczba powinna być większa od 0");
+                    System.out.println("A number should be greater than 0");
                 } else {
                     for (int i = 1; i <= number; i++) {
                         for (int j = 1; j <= number; j++) {

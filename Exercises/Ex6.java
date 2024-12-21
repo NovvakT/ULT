@@ -12,7 +12,7 @@ public class Ex6 {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Podaj wartość dochodu: ");
+        System.out.print("Enter income: ");
         double income = scanner.nextDouble();
         scanner.close();
 
@@ -24,6 +24,6 @@ public class Ex6 {
             tax = ((income - 85_528) * 0.32 + 14_839.02);
         }
 
-        System.out.println("Należny podatek wynosi: " + (tax < 0 ? 0 : tax) + "zł");
+        System.out.println("Due tax is: " + (tax < 0 ? 0 : tax) + "zł");
     }
 }

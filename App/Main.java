@@ -1,73 +1,62 @@
 package App;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void  main(String[] args) {
 
-        address a1 = new address("Toruńska", "Toruń");
-        Person p1 = new Person ("Jan", "Testowy", 37);
-        Person p2 = new Person ("Zbych", "Sprawdzacz", 27);
-        p1.setAddress("Ulica", "Miasto");
+        Person firstPerson = new Person("Jayce", "Heimerdinger");
+        Person secondPerson = new Person("Vi", "Vander");
+        Person thirdPerson = new Person("Jinx", "Silco");
 
-        System.out.println(p1.toString());
-    }
-}
+        Employee firstEmployee = new Employee(firstPerson, Departament.SALES);
+        Employee secondEmployee = new Employee(secondPerson, Departament.FINANCE);
+        Employee thirdEmployee = new Employee(thirdPerson, Departament.ADMINISTRATION);
 
-class Person {
-    private String name;
-    private String surname;
-    private int age;
-    private String address;
+        List<Employee> employees = new ArrayList<>();
 
-    public Person(String name, String surname, int age) {
-        this.name = name;
-        this.surname = surname;
-        this.age = age;
-        this.address = address;
-    }
+        employees.add(firstEmployee);
+        employees.add(secondEmployee);
+        employees.add(thirdEmployee);
 
-    public String getName() {
-        return name;
-    }
+        Company company = new Company("Med-Pack");
+        company.setEmployees(employees);
 
-    public void setName(String name) {
-    }
+        Utils.printBanner("Company's administration panel " + company.getName());
 
-    public String getSurname() {
-        return surname;
-    }
+        boolean done = false;
 
-    public void setSurname(String surname) {
-        if (this.age > 18) {
-            System.out.println("Zmieniono nazwisko z " + this.surname + " na" + surname);
-            this.surname = surname;
-        } else {
-            System.out.println("Osoba niepełnoletnia nie może zmienić nazwiska ;(");
+        while (!done) {
+            Utils.printTable(List.of("Show Employees", "Add Employees", "End program"), "What would you like to do");
+            int choice = Utils.inputInt("Enter operation's number: ");
+
+            switch (choice) {
+                case 1:
+                    System.out.println();
+                    System.out.println(company.getEmployees());
+                    System.out.println();
+                    break;
+                case 2:
+                    System.out.println();
+                    String name = Utils.inputString("Enter name: ");
+                    String surname = Utils.inputString("Enter surname: ");
+                    company.getEmployees().add(new Employee(new Person(name, surname), null));
+                    System.out.println("New Employee has been added");
+                    System.out.println();
+                    break;
+                case 3:
+                    System.out.println();
+                    System.out.println("Good bye");
+                    System.out.println();
+                    done = true;
+                    break;
+                default:
+                    System.out.println();
+                    System.out.println("Wrong input, try again");
+                    System.out.println();
+            }
         }
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public String getFullName() {
-        return name + " " + surname;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String street, String city) {
-    }
-}
-
-class address {
-    private String street;
-    private String city;
-
-    public address(String street, String city) {
-        this.street = street;
-        this.city = city;
     }
 }
 

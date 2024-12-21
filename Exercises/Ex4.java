@@ -14,12 +14,12 @@ import java.util.Scanner;
 
 public class Ex4 {
     public static void main(String[] args) {
-        System.out.println("Prosty kalkulator");
+        System.out.println("Basic calculator");
         System.out.println("-----------------");
 
-        int a = Utils.inputIntStatic("Podaj pierwszą liczbę: ");
-        String sign = inputString("Podaj znak operacji (+, -, *, /): ");
-        int b = Utils.inputIntStatic("Podaj drugą liczbę: ");
+        int a = Utils.inputIntStatic("Enter first number: ");
+        String sign = inputString("Enter operation's sign (+, -, *, /): ");
+        int b = Utils.inputIntStatic("Enter second number: ");
 
         System.out.println("-----------------");
 
@@ -35,13 +35,13 @@ public class Ex4 {
                 break;
             case "/":
                 if (b==0){
-                    System.out.println("W przypadku dzielenia drugą liczbą nie może być zero!");
+                    System.out.println("The divasor can not be zero!");
                 } else {
                     System.out.println("a / b = " + (a / b));
                 }
                 break;
             default:
-                System.out.println("Podano błędną operację");
+                System.out.println("Wrong operation entered");
         }
 
     }

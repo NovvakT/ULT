@@ -4,9 +4,9 @@ package Exercises;//Zadanie 2. Wczytać od użytkownika 3 liczby całkowite i wy
 public class Ex2 {
     public static void main(String[] args) {
 
-        int a = Utils.inputIntStatic("Podaj pierwszą liczbę: ");
-        int b = Utils.inputIntStatic("Podaj drugą liczbę: ");
-        int c = Utils.inputIntStatic("Podaj trzecią liczbę: ");
+        int a = Utils.inputIntStatic("Enter first number: ");
+        int b = Utils.inputIntStatic("Enter second number: ");
+        int c = Utils.inputIntStatic("Enter third number: ");
 
         int max;
         int min;
@@ -27,8 +27,8 @@ public class Ex2 {
             min = c;
         }
 
-        System.out.println("Największa liczba to: " + max);
-        System.out.println("Najmniejsza liczba to: " + min);
+        System.out.println("The biggest number is: " + max);
+        System.out.println("The smallest number is: " + min);
 
     }
 }
