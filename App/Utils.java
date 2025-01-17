@@ -1,17 +1,45 @@
 package App;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 public class Utils {
+
+    static Company initData() {
+        Person firstPerson = new Person("Jayce", "Heimerdinger");
+        Person secondPerson = new Person("Vi", "Vander");
+        Person thirdPerson = new Person("Jinx", "Silco");
+        Person forthPerson = new Person("Viktor", "Sevika");
+        Person fifthPerson = new Person("Milo", "Clogger");
+
+        Employee firstEmployee = new Employee(firstPerson, Department.SALES, Branch.UK);
+        Employee secondEmployee = new Employee(secondPerson, Department.FINANCE, Branch.FRANCE);
+        Employee thirdEmployee = new Employee(thirdPerson, Department.ADMINISTRATION, Branch.GERMANY);
+        Employee forthEmployee = new Employee(forthPerson, Department.FINANCE, Branch.POLAND);
+        Employee fifthEmployee = new Employee(fifthPerson, Department.ADMINISTRATION, Branch.FRANCE);
+
+        List<Employee> employees = new ArrayList<>();
+
+        employees.add(firstEmployee);
+        employees.add(secondEmployee);
+        employees.add(thirdEmployee);
+        employees.add(forthEmployee);
+        employees.add(fifthEmployee);
+
+        Company company = new Company("Med-Pack");
+        company.setEmployees(employees);
+        return company;
+    }
+
     static int inputInt(String message) {
         try {
             System.out.print(message);
             Scanner scanner = new Scanner(System.in);
             return scanner.nextInt();
         } catch (InputMismatchException e) {
-            System.out.println("Podano błędną wartość");
+            System.out.println("Wrong input");
             return inputInt(message);
         }
     }
@@ -30,8 +58,8 @@ public class Utils {
         System.out.println(border + "\n");
     }
 
-    static void printTable(List<String> collection, String title) {
-        int titleLength = title.length();
+    static void printTable(List<String> collection) {
+        int titleLength = "What would you like to do".length();
         int longestItemLength = collection.stream().mapToInt(String::length).max().orElse(0);
         int columnLength = Math.max(titleLength, longestItemLength);
         String titlePlaceholder = "| Id | %-" + columnLength + "s |%n";
@@ -39,7 +67,7 @@ public class Utils {
         String horizontalBorder = "+----+" + "-".repeat(columnLength + 2) + "+";
 
         System.out.println(horizontalBorder);
-        System.out.printf(titlePlaceholder, title);
+        System.out.printf(titlePlaceholder, "What would you like to do");
         System.out.println(horizontalBorder);
         for (int i = 0; i < collection.size(); i++) {
             System.out.printf(itemPlaceholder, i + 1, collection.get(i));
@@ -47,8 +75,13 @@ public class Utils {
         System.out.println(horizontalBorder);
     }
 
+    static void printAnswer(String message) {
+        System.out.println();
+        System.out.println(message);
+        System.out.println();
+    }
+
     static void printSeparator() {
         System.out.println("--------------------------------");
     }
-
 }

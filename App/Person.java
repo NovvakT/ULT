@@ -3,19 +3,10 @@ package App;
 class Person {
     private String name;
     private String surname;
-    private Address address;
 
     public Person(String name, String surname) {
         this.name = name;
         this.surname = surname;
-    }
-
-    public Address getAddress () {
-        return address;
-    }
-
-    public void setAddress(String city, String street) {
-        this.address = new Address(street, city);
     }
 
     public String getName() {

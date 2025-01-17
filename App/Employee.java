@@ -2,18 +2,28 @@ package App;
 
 class Employee extends Person {
 
-    private  Departament departament;
+    private Department department;
+    private Branch branch;
 
-    public Employee(Person person, Departament departament) {
+    public Employee(Person person, Department department, Branch branch) {
         super(person.getName(), person.getSurname());
-        this.departament = departament;
+        this.department = department;
+        this.branch = branch;
     }
 
-    public Departament getDepartament() {
-        return departament;
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setDepartament(Departament departament) {
-        this.departament = departament;
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public Branch getBranch() {
+        return branch;
+    }
+
+    public void setBranch(Branch branch) {
+        this.branch = branch;
     }
 }

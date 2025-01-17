@@ -1,51 +1,43 @@
 package App;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void  main(String[] args) {
 
-        Person firstPerson = new Person("Jayce", "Heimerdinger");
-        Person secondPerson = new Person("Vi", "Vander");
-        Person thirdPerson = new Person("Jinx", "Silco");
-
-        Employee firstEmployee = new Employee(firstPerson, Departament.SALES);
-        Employee secondEmployee = new Employee(secondPerson, Departament.FINANCE);
-        Employee thirdEmployee = new Employee(thirdPerson, Departament.ADMINISTRATION);
-
-        List<Employee> employees = new ArrayList<>();
-
-        employees.add(firstEmployee);
-        employees.add(secondEmployee);
-        employees.add(thirdEmployee);
-
-        Company company = new Company("Med-Pack");
-        company.setEmployees(employees);
-
+        Company company = Utils.initData();
         Utils.printBanner("Company's administration panel " + company.getName());
 
         boolean done = false;
 
         while (!done) {
-            Utils.printTable(List.of("Show Employees", "Add Employees", "End program"), "What would you like to do");
+            Utils.printTable(List.of("Show Employees", "Add Employees", "Remove Employees", "Edit Employees", "View Employees by Department", "End program"));
             int choice = Utils.inputInt("Enter operation's number: ");
 
             switch (choice) {
                 case 1:
-                    System.out.println();
-                    System.out.println(company.getEmployees());
-                    System.out.println();
+                    company.printEmployees();
                     break;
                 case 2:
-                    System.out.println();
-                    String name = Utils.inputString("Enter name: ");
-                    String surname = Utils.inputString("Enter surname: ");
-                    company.getEmployees().add(new Employee(new Person(name, surname), null));
-                    System.out.println("New Employee has been added");
-                    System.out.println();
+                    company.addEmployee(
+                            Utils.inputString("Enter name: "),
+                            Utils.inputString("Enter surname: ")
+                    );
                     break;
                 case 3:
+                    company.printEmployees();
+                    company.removeEmployee(Utils.inputInt("Provide employee's id: "));
+                    break;
+                case 4:
+                    company.printEmployees();
+                    company.editEmployee(Utils.inputInt("Provide employee's id: "));
+                    break;
+                case 5:
+                    Department.printDepartments();
+                    Department.chooseDepartment();
+                    System.out.println();
+                    break;
+                case 6:
                     System.out.println();
                     System.out.println("Good bye");
                     System.out.println();
