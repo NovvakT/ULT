@@ -6,36 +6,45 @@ public class Main {
     public static void  main(String[] args) {
 
         Company company = Utils.initData();
-        Utils.printBanner("Company's administration panel " + company.getName());
+        Utils.printBanner(company.getName() + "'s administration panel");
 
         boolean done = false;
 
         while (!done) {
-            Utils.printTable(List.of("Show Employees", "Add Employees", "Remove Employees", "Edit Employees", "View Employees by Department", "End program"));
+            Utils.printTable(List.of(
+                    "Show Employees",
+                    "Add Employees",
+                    "Remove Employees",
+                    "Edit Employees",
+                    "View Employees by Department",
+                    "End program"));
             int choice = Utils.inputInt("Enter operation's number: ");
 
             switch (choice) {
                 case 1:
                     company.printEmployees();
+                    Utils.printSeparator();
                     break;
                 case 2:
                     company.addEmployee(
                             Utils.inputString("Enter name: "),
-                            Utils.inputString("Enter surname: ")
-                    );
+                            Utils.inputString("Enter surname: "));
+                            Utils.printSeparator();
                     break;
                 case 3:
                     company.printEmployees();
                     company.removeEmployee(Utils.inputInt("Provide employee's id: "));
+                    Utils.printSeparator();
                     break;
                 case 4:
                     company.printEmployees();
                     company.editEmployee(Utils.inputInt("Provide employee's id: "));
+                    Utils.printSeparator();
                     break;
                 case 5:
                     Department.printDepartments();
                     Department.chooseDepartment();
-                    System.out.println();
+                    Utils.printSeparator();
                     break;
                 case 6:
                     System.out.println();
@@ -46,7 +55,7 @@ public class Main {
                 default:
                     System.out.println();
                     System.out.println("Wrong input, try again");
-                    System.out.println();
+                    Utils.printSeparator();
             }
         }
     }

@@ -1,9 +1,9 @@
 package App;
 
 public enum Department {
-    SALES("Sprzedaż"),
-    FINANCE("Finanse"),
-    ADMINISTRATION("Administracja");
+    SALES("Sales"),
+    FINANCE("Finance"),
+    ADMINISTRATION("Administration");
 
     private final String name;
 

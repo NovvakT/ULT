@@ -3,7 +3,7 @@ package App;
 import java.util.List;
 
 public class Company {
-    private String name;
+    private final String name;
     private List<Employee> employees;
 
     public Company(String name) {
@@ -12,10 +12,6 @@ public class Company {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     List<Employee> getEmployees() {
@@ -28,7 +24,7 @@ public class Company {
 
     public void addEmployee(String name, String surname) {
         Person person = new Person(name, surname);
-        Employee employee = new Employee(person, null, null);
+        Employee employee = new Employee(person, null);
         employees.add(employee);
         Utils.printAnswer(name + " " + surname + " has been added.");
     }

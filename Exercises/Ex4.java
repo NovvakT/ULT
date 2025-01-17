@@ -18,7 +18,7 @@ public class Ex4 {
         System.out.println("-----------------");
 
         int a = Utils.inputIntStatic("Enter first number: ");
-        String sign = inputString("Enter operation's sign (+, -, *, /): ");
+        String sign = inputString();
         int b = Utils.inputIntStatic("Enter second number: ");
 
         System.out.println("-----------------");
@@ -46,8 +46,8 @@ public class Ex4 {
 
     }
 
-    static String inputString(String message) {
-        System.out.print(message);
+    static String inputString() {
+        System.out.print("Enter operation's sign (+, -, *, /): ");
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }

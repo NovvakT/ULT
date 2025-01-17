@@ -14,11 +14,11 @@ public class Utils {
         Person forthPerson = new Person("Viktor", "Sevika");
         Person fifthPerson = new Person("Milo", "Clogger");
 
-        Employee firstEmployee = new Employee(firstPerson, Department.SALES, Branch.UK);
-        Employee secondEmployee = new Employee(secondPerson, Department.FINANCE, Branch.FRANCE);
-        Employee thirdEmployee = new Employee(thirdPerson, Department.ADMINISTRATION, Branch.GERMANY);
-        Employee forthEmployee = new Employee(forthPerson, Department.FINANCE, Branch.POLAND);
-        Employee fifthEmployee = new Employee(fifthPerson, Department.ADMINISTRATION, Branch.FRANCE);
+        Employee firstEmployee = new Employee(firstPerson, Department.SALES);
+        Employee secondEmployee = new Employee(secondPerson, Department.FINANCE);
+        Employee thirdEmployee = new Employee(thirdPerson, Department.ADMINISTRATION);
+        Employee forthEmployee = new Employee(forthPerson, Department.FINANCE);
+        Employee fifthEmployee = new Employee(fifthPerson, Department.ADMINISTRATION);
 
         List<Employee> employees = new ArrayList<>();
 
@@ -59,7 +59,7 @@ public class Utils {
     }
 
     static void printTable(List<String> collection) {
-        int titleLength = "What would you like to do".length();
+        int titleLength = "Available Actions".length();
         int longestItemLength = collection.stream().mapToInt(String::length).max().orElse(0);
         int columnLength = Math.max(titleLength, longestItemLength);
         String titlePlaceholder = "| Id | %-" + columnLength + "s |%n";
@@ -67,7 +67,7 @@ public class Utils {
         String horizontalBorder = "+----+" + "-".repeat(columnLength + 2) + "+";
 
         System.out.println(horizontalBorder);
-        System.out.printf(titlePlaceholder, "What would you like to do");
+        System.out.printf(titlePlaceholder, "Available Actions");
         System.out.println(horizontalBorder);
         for (int i = 0; i < collection.size(); i++) {
             System.out.printf(itemPlaceholder, i + 1, collection.get(i));
@@ -82,6 +82,7 @@ public class Utils {
     }
 
     static void printSeparator() {
-        System.out.println("--------------------------------");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println();
     }
 }
