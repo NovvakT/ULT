@@ -17,6 +17,7 @@ public class Main {
                     "Remove Employees",
                     "Edit Employees",
                     "View Employees by Department",
+                    "View Employees by Branch",
                     "End program"));
             int choice = Utils.inputInt("Enter operation's number: ");
 
@@ -47,6 +48,11 @@ public class Main {
                     Utils.printSeparator();
                     break;
                 case 6:
+                    Branch.printBranch();
+                    Branch.chooseBranch();
+                    Utils.printSeparator();
+                    break;
+                case 7:
                     System.out.println();
                     System.out.println("Good bye");
                     System.out.println();

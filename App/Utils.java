@@ -13,12 +13,17 @@ public class Utils {
         Person thirdPerson = new Person("Jinx", "Silco");
         Person forthPerson = new Person("Viktor", "Sevika");
         Person fifthPerson = new Person("Milo", "Clogger");
+        Person sixthPerson = new Person("Mel", "Medarda");
+        Person seventhPerson = new Person("Ambessa", "Medarda");
 
-        Employee firstEmployee = new Employee(firstPerson, Department.SALES);
-        Employee secondEmployee = new Employee(secondPerson, Department.FINANCE);
-        Employee thirdEmployee = new Employee(thirdPerson, Department.ADMINISTRATION);
-        Employee forthEmployee = new Employee(forthPerson, Department.FINANCE);
-        Employee fifthEmployee = new Employee(fifthPerson, Department.ADMINISTRATION);
+        Employee firstEmployee = new Employee(firstPerson, Department.SALES, Branch.UK);
+        Employee secondEmployee = new Employee(secondPerson, Department.FINANCE, Branch.FRANCE);
+        Employee thirdEmployee = new Employee(thirdPerson, Department.ADMINISTRATION, Branch.FRANCE);
+        Employee forthEmployee = new Employee(forthPerson, Department.FINANCE, Branch.POLAND);
+        Employee fifthEmployee = new Employee(fifthPerson, Department.ADMINISTRATION, Branch.POLAND);
+        Employee sixthEmployee = new Employee(sixthPerson, Department.SALES, Branch.FRANCE);
+        Employee seventhEmployee = new Employee(seventhPerson, Department.SALES, Branch.POLAND);
+
 
         List<Employee> employees = new ArrayList<>();
 
@@ -27,6 +32,9 @@ public class Utils {
         employees.add(thirdEmployee);
         employees.add(forthEmployee);
         employees.add(fifthEmployee);
+        employees.add(sixthEmployee);
+        employees.add(seventhEmployee);
+
 
         Company company = new Company("Med-Pack");
         company.setEmployees(employees);

@@ -2,6 +2,8 @@ package App;
 
 import java.util.List;
 
+import static App.Branch.POLAND;
+
 public class Company {
     private final String name;
     private List<Employee> employees;
@@ -24,7 +26,7 @@ public class Company {
 
     public void addEmployee(String name, String surname) {
         Person person = new Person(name, surname);
-        Employee employee = new Employee(person, null);
+        Employee employee = new Employee(person, null, null);
         employees.add(employee);
         Utils.printAnswer(name + " " + surname + " has been added.");
     }

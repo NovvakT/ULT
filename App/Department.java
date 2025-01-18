@@ -11,7 +11,7 @@ public enum Department {
         this.name = name;
     }
 
-    public String getName() {
+    private String getName() {
         return name;
     }
 
